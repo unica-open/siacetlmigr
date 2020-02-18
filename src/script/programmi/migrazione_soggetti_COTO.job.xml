@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<job  stop_on_error="no" title="Migrazione dei capitoli di gestione per l'ente Comune di Torino">
+<!-- richiama l'esecuzione del job di migrazione dei capitoli ed è parametrico su una serie di valori:
+
+db_siac
+nome_ente
+p_anni
+p_anno_esercizio
+p_cleanAll
+p_cleanTabDecod
+p_commitsize
+p_ente
+p_login_operazione
+
+-->
+
+    <settings >
+        <mail_on_error ><![CDATA[yes]]></mail_on_error>
+
+        <mail_on_success ><![CDATA[yes]]></mail_on_success>
+
+        <log_mail_to ><![CDATA[mauro.pavese@csi.it]]></log_mail_to>
+
+        <log_level ><![CDATA[info]]></log_level>
+    </settings>
+
+    <script  language="shell">
+        <![CDATA[
+/skedul/procsked/procscript/migrSoggetto.sh siacmigr COTO 4 2015 S S 1000 1 migr_soggetti
+        ]]>
+    </script>
+
+    <run_time />
+</job>

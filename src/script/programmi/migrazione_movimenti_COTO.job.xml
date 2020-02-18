@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<job  stop_on_error="no" title="Migrazione dei movimenti per l'ente Comune di Torino">
+<!-- richiama l'esecuzione del job e' parametrico su una serie di valori:
+
+db_siac
+nome_ente
+p_anno_esercizio
+p_cleanAll
+p_ente
+p_login_operazione
+p_login_operazione_del
+
+-->
+
+    <settings >
+        <mail_on_error ><![CDATA[yes]]></mail_on_error>
+
+        <mail_on_success ><![CDATA[yes]]></mail_on_success>
+
+        <log_mail_to ><![CDATA[mauro.pavese@csi.it]]></log_mail_to>
+
+        <log_level ><![CDATA[info]]></log_level>
+    </settings>
+
+    <script  language="shell">
+        <![CDATA[
+/skedul/procsked/procscript/migrMovimentiGestione.sh siacmigr COTO 2015 S 1 migr_impacc null
+        ]]>
+    </script>
+
+    <run_time />
+</job>

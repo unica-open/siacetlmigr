@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ##################################################### -->
+<!-- # Copyright 2006 (c) CSI Piemonte.                  # -->
+<!-- #                                                   # -->
+<!-- # build.xml file per compilazione e generazione     # -->
+<!-- # del pacchetto per il rilascio dell'applicazione.  # -->
+<!-- #                                                   # -->
+<!-- # Per una lista completa dei tasks eseguibili usare # -->
+<!-- # l'argomento di ant -projecthelp quando si         # -->
+<!-- # richiama questo build.xml.                        # -->
+<!-- ##################################################### -->
+
+<project basedir="."
+         default="default"
+         name="siacmigr"
+         xmlns:ivy="antlib:fr.jayasoft.ivy.ant" >
+
+  <description>Build file per il progetto: [siacmigr]</description>
+  <!-- -->
+  <property file="buildfiles/build.properties" />
+  <property file="buildfiles/${target}.properties" />
+  <!-- -->
+  
+
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # Target: init                                              # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="init" description="Inizializza lo script Ant.">
+    <tstamp />
+    <condition property="target" value="dev">
+      <equals arg1="${target}" arg2="$${target}" />
+    </condition>        
+    <mkdir dir="${build}/archives/${target}" />
+    <mkdir dir="${dist}/${target}" />    
+  </target>
+
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # Target: default                                           # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="default"
+          description="Eseguire il build per l'environment
+                       specificato a linea di comando con
+                       -Dtarget=${target} o per tutti gli
+                       environment (se non specificato).">
+
+    <condition property="first-call" value="distribution">
+      <not>
+        <equals arg1="${target}" arg2="$${target}" />
+      </not>
+    </condition>
+
+    <condition property="first-call" value="all-targets">
+      <equals arg1="${target}" arg2="$${target}" />
+    </condition>
+
+    <echo message="target: ${server}" />
+    <echo message="target: ${target}" />
+    <echo message="first-call: ${first-call}" />
+
+    <antcall target="clean-all" />
+    <antcall target="${first-call}" />
+  </target>
+
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # Target: environment-recreate                              # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="environment-recreate">
+    <mkdir dir="${temp}/conf" />
+	<mkdir dir="${temp}/etlopen" />
+    <copy todir="${temp}/conf" overwrite="true">
+      <fileset dir="${conf}" />
+    </copy>
+	<copy todir="${temp}/etlopen" overwrite="true">
+      <fileset dir="${etlopen}" />
+    </copy>
+  </target>
+
+  
+
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # Target: about                                             # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="about" description="Visualizza l'elenco dei target
+                                    pubblici dello script.">
+
+    <loadproperties srcfile="buildfiles/build.properties" />
+    <loadfile property="about" srcfile="buildfiles/about.txt" />
+    <echo message="${about}" />
+  </target>
+
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # Target: about-custom                                      # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="about-custom"
+          description="Visualizza l'elenco di tutti i target,
+                       pubblici e privati
+                       (equivalente a 'ant -projecthelp')" >
+
+    <loadproperties srcfile="buildfiles/build.properties" />
+    <loadfile property="about-custom" srcfile="buildfiles/about-custom.txt" />
+    <echo message="${about-custom}" />
+    <java classname="org.apache.tools.ant.Main">
+      <arg value="-projecthelp" />
+    </java>
+  </target>
+
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # [DISTRIB]: all-targets                                    # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="all-targets"
+          description="Esegue il build per le varie distribuzioni in sequenza.">
+    <antcall target="distribution" />
+  </target>
+
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # [DISTRIB]: distribution                                   # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="distribution" depends="package-all"
+          description="Costruisce il tar per la distribuzione." >
+    <echo message="====== Creating distribution for ${target} ..."/>
+    <echo message="====== Basedir: ${build}/archives/${target} ..."/>	
+
+    <tar tarfile="${dist}/${target}/${dist-file-name}.tar"
+         basedir="${build}/archives/${target}"
+         includes="**/*.*" />
+  	
+  	 <tar tarfile="${dist}/${target}/${dist-file-name}-jobscheduler.tar"
+  	         basedir="${build}/archives/${target}/${prodotto}-${linea}/${componente}/programmi"
+  	         includes="**/*.*" />
+  	 <tar tarfile="${dist}/${target}/${dist-file-name}-scripts.tar"
+  	         basedir="${build}/archives/${target}/${prodotto}-${linea}/${componente}/procscript"
+  	         includes="**/*.*" />
+  </target>
+
+  
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # Target: environment-config                                # -->
+  <!-- #         Gestire qui i  replace delle variabile d'ambiente # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="environment-config" depends="environment-recreate"
+          description="Predispone le configurazioni dipendenti dall'ambiente." >
+    <echo message="====== gestire qui i  replace delle variabile d'ambiente" />
+	<replace file="${build}/temp/conf/kettle.properties" token="@@siac.db.host@@" value="${siac.db.host}"/>
+	<replace file="${build}/temp/conf/kettle.properties" token="@@siac.db.sid@@" value="${siac.db.sid}"/>
+	<replace file="${build}/temp/conf/kettle.properties" token="@@siac.db.porta@@" value="${siac.db.porta}"/>
+	<replace file="${build}/temp/conf/kettle.properties" token="@@siac.db.user@@" value="${siac.db.user}"/>
+  	<replace file="${build}/temp/conf/kettle.properties" token="@@siac.db.pwd@@" value="${siac.db.pwd}"/>
+	
+
+  </target>
+
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # [PKG]: package-all                                        # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="package-all" depends="init"
+          description="esegue il packaging di ogni componente del prodotto">
+    <antcall target="environment-config" />
+	<mkdir dir="${build}/archives/${target}/${prodotto}-${linea}/${componente}/.kettle" />
+	<mkdir dir="${build}/archives/${target}/${prodotto}-${linea}/${componente}" />
+  	
+  	<!-- cartelle per le risorse script e programmi -->
+  	<mkdir dir="${build}/archives/${target}/${prodotto}-${linea}/${componente}/programmi" />
+  	<mkdir dir="${build}/archives/${target}/${prodotto}-${linea}/${componente}/procscript" />
+  	
+	<copy todir="${build}/archives/${target}/${prodotto}-${linea}/${componente}/.kettle" overwrite="true">
+      <fileset dir="${build}/temp/conf" />	  
+    </copy>
+  	
+	<copy todir="${build}/archives/${target}/${prodotto}-${linea}/${componente}" overwrite="true">
+      <fileset dir="${build}/temp/etlopen" >
+		<exclude name="*.kdb" />
+		<exclude name="*.kjb" />
+	</fileset>	
+		</copy>
+		
+		<copy todir="${build}/archives/${target}/${prodotto}-${linea}/${componente}/programmi" overwrite="true">
+		      <fileset dir="${script}/programmi" />				
+    </copy>
+	
+  	<copy todir="${build}/archives/${target}/${prodotto}-${linea}/${componente}/procscript" overwrite="true">
+  			      <fileset dir="${script}/procscript" />				
+  	    </copy>
+	
+  </target>
+
+  
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # [CLEAN]: clean-all                                        # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="clean-all" description="Rimuove tutte le cartelle temporanee."
+          depends="clean-archives,clean-dist,
+                  clean-temp"/>
+
+  
+
+
+
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # [CLEAN]: clean-temp                                       # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="clean-temp"
+          description="Rimuove la cartella dei files temporanei di build.">
+    <delete dir="${temp}" />
+  </target>
+
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # [CLEAN]: clean-archives                                  # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="clean-archives"
+          description="Rimuove la cartella degli archivi (war, ear, ...).">
+    <delete dir="${build}/archives" />
+  </target>
+
+  <!-- -->
+  <!-- ############################################################# -->
+  <!-- # [CLEAN]: clean-dist                                       # -->
+  <!-- ############################################################# -->
+  <!-- -->
+  <target name="clean-dist"
+          description="Rimuove la cartella delle distribuzioni.">
+    <delete dir="${dist}" />
+  </target>
+
+  
+  
+
+</project>

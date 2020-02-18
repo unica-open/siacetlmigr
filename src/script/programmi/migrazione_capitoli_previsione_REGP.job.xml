@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<job  stop_on_error="no" title="Migrazione dei capitoli dei previsione per l'ente Regione Piemonte">
+<!-- richiama l'esecuzione del job di migrazione dei capitoli ed è parametrico su una serie di valori:
+
+nome_ente 
+anno_bilancio 
+data_elaborazione
+codice_ente
+codice_fase_bilancio
+tipo_capitolo_e
+tipo_capitolo_u
+tipo_elab
+login_operazione -->
+
+    <settings >
+        <mail_on_error ><![CDATA[yes]]></mail_on_error>
+
+        <mail_on_success ><![CDATA[yes]]></mail_on_success>
+
+        <log_mail_to ><![CDATA[mauro.pavese@csi.it]]></log_mail_to>
+    </settings>
+
+    <script  language="shell">
+        <![CDATA[
+/skedul/procsked/procscript/migrCapitolo.sh REGP 2014 2014-12-30 2 P CAP-EP CAP-UP P migr_capitoli_p Basic
+        ]]>
+    </script>
+
+    <run_time />
+</job>

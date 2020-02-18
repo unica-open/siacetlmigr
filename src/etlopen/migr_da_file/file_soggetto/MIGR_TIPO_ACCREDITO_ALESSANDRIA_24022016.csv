@@ -1,0 +1,12 @@
+accredito_id|codice|descri|tipo_accredito|priorita|decodificaoil|ente_proprietario_id
+105|GEN|Modalità generica|GE|0||29
+83|LICOM|Mandati a compensazione|GE|0||29
+6|CITRA|Assegno circolare non trasferibile|GE|0||29
+89|BONIF|Bonifico Bancario|CB|0||29
+10|RIDBA|RID BANCARIO|GE|0||29
+78|PAPRE|Pagamento prestazioni redditi assimilati|GE|0||29
+99|GIROF|Girofondi Banca d''Italia|CBI|0||29
+88|BOCAS|Bonifico BPM|CB|0||29
+41|LIQUI|Liquidi|GE|0||29
+98|GIRO|GIROFONDI|CBI|0||29
+100|POSTA|Conto Corrente Postale|CCP|0||29

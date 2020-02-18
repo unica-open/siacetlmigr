@@ -1,0 +1,23 @@
+accredito_id|codice|descri|tipo_accredito|priorita|decodificaoil|ente_proprietario_id
+99|GIROF|Girofondi Banca d''Italia|CBI|0||29
+28|ASSPO|Assegno postale|GE|0||29
+88|BOCAS|Bonifico BPM|CB|0||29
+83|LICOM|Mandati a compensazione|GE|0||29
+68|CONBE|Quietanza congiunta dei beneficiari|GE|0||29
+65|TESOR|Conto di tesoreria|GE|0||29
+77|VAGLI|Vaglia postale ordinario|GE|0||29
+67|TESUN|Tesoreria unica|GE|0||29
+78|PAPRE|Pagamento prestazioni redditi assimilati|GE|0||29
+41|LIQUI|Liquidi|GE|0||29
+86|ASTRA|Assegno di traenza|GE|0||29
+30|APLOC|Assegno postale localizzato|GE|0||29
+98|GIRO|GIROFONDI|CBI|0||29
+10|RIDBA|RID BANCARIO|GE|0||29
+87|IBAN|ANNULLATO|CB|0||29
+6|CITRA|Assegno circolare non trasferibile|GE|0||29
+89|BONIF|Bonifico Bancario|CB|0||29
+103|DISBE|Quietanza disgiunta dei beneficiari|CO|0||29
+100|POSTA|Conto Corrente Postale|CCP|0||29
+104|DISDE|Quietanza disgiunta delle persone delegate|CO|0||29
+102|COPED|Quietanza congiunta delle persone delegate|CO|0||29
+101|DEQUI|Persona delegata alla quietanza|CO|0||29

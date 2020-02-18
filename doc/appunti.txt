@@ -1,0 +1,23 @@
+per velocizzare l'esecuzione della migrazione si può agire sui parametri di configurazione dell'istanza postgress
+
+work_mem=1MB
+
+shared_buffers=32MB
+
+i valori sopraindicati sono il default e probabilmente settati a livello di ricetta chef, è opportuno alzarne il valore secondo la seguente regola:
+
+Read Using EXPLAIN if you haven't already.
+ANALYZE your database to update query stats.
+VACUUM your database to purge if you are not already running Autovacuum.
+Check your main GUC settings to make sure that they are set to sensible values (see Tuning Your PostgreSQL Server for additional hints):
+shared_buffers should be 10% to 25% of available RAM
+effective_cache_size should be 75% of available RAM
+Test changing work_mem: increase it to 8MB, 32MB, 256MB, 1GB. Does it make a difference?
+For Insert/Update/Delete queries, you should also try configuring your WAL:
+Move pg_xlog to a separate disk resource, if possible
+Increase checkpoint_segments to 16 or more (assuming you have disk space)
+Increase wal_buffers to 16MB
+
+
+Gli etl sono parametrici per ambiente sul puntamento al DB target, mentre sul DB fonte lo sono anche per l'ente; attualmente il job riceve il codice ente che permette di reperire un file di properties distinto, uno per ogni ente.
+L'altenativa è quello di configurare tutti i puntamenti sul file kettle.properties, prefiggendo ad essi il nome dell'ente

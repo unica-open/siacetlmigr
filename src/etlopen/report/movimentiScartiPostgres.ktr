@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>movimentiScartiPostgres</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>&#47;</directory>
+    <parameters>
+    </parameters>
+    <log>
+<trans-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
+<perf-log-table><connection/>
+<schema/>
+<table/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<step-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+  <created_user>-</created_user>
+  <created_date>2015&#47;11&#47;05 18:01:49.601</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2015&#47;11&#47;05 18:01:49.601</modified_date>
+  </info>
+  <notepads>
+  </notepads>
+  <connection>
+    <name>Siac</name>
+    <server>${siac.db.host}</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${siac.db.sid}</database>
+    <port>${siac.db.porta}</port>
+    <username>${siac.db.user}</username>
+    <password>${siac.db.pwd}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${siac.db.porta}</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>siac_fonte</name>
+    <server>${siac.fonte.host}</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>${siac.fonte.sid}</database>
+    <port>${siac.fonte.porta}</port>
+    <username>${siac.fonte.user}</username>
+    <password>${siac.fonte.pwd}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${siac.fonte.porta}</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <order>
+  <hop> <from>Scarti vincoli impegni_accertamenti</from><to>1 - scrive  foglio Scarti Vincoli Imp. Acc. Postgres</to><enabled>Y</enabled> </hop>  <hop> <from>Write to log</from><to>Scarti vincoli impegni_accertamenti</to><enabled>N</enabled> </hop>  <hop> <from>Block this step until write 1 finish</from><to>Impegni vincolati</to><enabled>Y</enabled> </hop>  <hop> <from>Block this step until write 2  finish</from><to>Accertamenti vincolati</to><enabled>Y</enabled> </hop>  <hop> <from>Get System Info</from><to>Block this step until write 1 finish</to><enabled>Y</enabled> </hop>  <hop> <from>Get System Info</from><to>Block this step until write 2  finish</to><enabled>Y</enabled> </hop>  <hop> <from>Accertamenti vincolati</from><to>3 - scrive foglio Accertamenti vincolati</to><enabled>Y</enabled> </hop>  <hop> <from>Impegni vincolati</from><to>2 - scrive foglio Impegni Vincolati</to><enabled>Y</enabled> </hop>  <hop> <from>Get System Info</from><to>Scarti vincoli impegni_accertamenti</to><enabled>Y</enabled> </hop>  </order>
+  <step>
+    <name>1 - scrive  foglio Scarti Vincoli Imp. Acc. Postgres</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>push</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>push</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>Y</leaveExistingStylesUnchanged>
+    <appendLines>Y</appendLines>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <file>
+      <name>${Internal.Transformation.Filename.Directory}\${nome_file}</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Scarti Vincoli Imp. Acc. Postgres</sheetname>
+      <autosizecolums>Y</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>new</if_sheet_exists>
+      </file>
+    <template>
+      <enabled>Y</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>${Internal.Transformation.Filename.Directory}\template\template_quadratura movgest.xls</filename>
+      <sheetname>Totali</sheetname>
+    </template>
+    <fields>
+      <field>
+        <name>vincolo_id</name>
+        <type>Integer</type>
+        <format>0</format>
+        <title>Id vincolo</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>anno_esercizio</name>
+        <type>Integer</type>
+        <format>0</format>
+        <title>Anno esercizio</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>anno_impegno</name>
+        <type>Integer</type>
+        <format>0</format>
+        <title>Anno impegno</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>numero_impegno</name>
+        <type>Integer</type>
+        <format>0</format>
+        <title>Numero impegno</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>anno_accertamento</name>
+        <type>Integer</type>
+        <format>0</format>
+        <title>Anno accertamento</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>numero_accertamento</name>
+        <type>Integer</type>
+        <format>0</format>
+        <title>Numero accertamento</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>motivo_scarto</name>
+        <type>String</type>
+        <format/>
+        <title>Motivo scarto</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>importo_scartato</name>
+        <type>BigNumber</type>
+        <format>#,##0.00</format>
+        <title>Importo</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>890</xloc>
+      <yloc>195</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>2 - scrive foglio Impegni Vincolati</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <startingCell>A2</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>1</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>overwrite</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>Y</leaveExistingStylesUnchanged>
+    <appendLines>Y</appendLines>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <file>
+      <name>${Internal.Transformation.Filename.Directory}\${nome_file}</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Impegni vincolati</sheetname>
+      <autosizecolums>Y</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
+      </file>
+    <template>
+      <enabled>Y</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>${Internal.Transformation.Filename.Directory}\template\template_quadratura movgest.xls</filename>
+      <sheetname>Totali</sheetname>
+    </template>
+    <fields>
+      <field>
+        <name>anno_impegno</name>
+        <type>String</type>
+        <format/>
+        <title>Anno</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>numero_impegno</name>
+        <type>Number</type>
+        <format>0</format>
+        <title>Numero</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>anno_accertamento</name>
+        <type>String</type>
+        <format/>
+        <title>Anno </title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>numero_accertamento</name>
+        <type>Number</type>
+        <format>0</format>
+        <title>Numero</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>importo_vincolo</name>
+        <type>Number</type>
+        <format>#,##0.00</format>
+        <title>Importo</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>889</xloc>
+      <yloc>275</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>3 - scrive foglio Accertamenti vincolati</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <header>Y</header>
+    <footer>N</footer>
+    <makeSheetActive>N</makeSheetActive>
+    <rowWritingMethod>push</rowWritingMethod>
+    <startingCell>A1</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>push</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>Y</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>N</add_to_result_filenames>
+    <file>
+      <name>${Internal.Transformation.Filename.Directory}\${nome_file}</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>Y</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Accertamenti vincolati</sheetname>
+      <autosizecolums>Y</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>reuse</if_file_exists>
+      <if_sheet_exists>reuse</if_sheet_exists>
+      </file>
+    <template>
+      <enabled>Y</enabled>
+      <sheet_enabled>N</sheet_enabled>
+      <filename>${Internal.Transformation.Filename.Directory}\template\template_quadratura movgest.xls</filename>
+      <sheetname>Totali</sheetname>
+    </template>
+    <fields>
+      <field>
+        <name>anno_accertamento</name>
+        <type>String</type>
+        <format/>
+        <title>Anno </title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>numero_accertamento</name>
+        <type>Number</type>
+        <format>0</format>
+        <title>Numero</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>importo_vincolato</name>
+        <type>Number</type>
+        <format>#,##0.00</format>
+        <title>Importo Vincolato</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>importo_iniziale</name>
+        <type>Number</type>
+        <format>#,##0.00</format>
+        <title>Iniziale</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>importo_attuale</name>
+        <type>Number</type>
+        <format>#,##0.00</format>
+        <title>Attuale</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>importo_utilizzabile</name>
+        <type>Number</type>
+        <format>#,##0.00</format>
+        <title>Utilizzabile</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>886</xloc>
+      <yloc>362</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Accertamenti vincolati</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>Siac</connection>
+    <sql>select ?::Date,mA.movgest_anno anno_accertamento, mA.movgest_numero numero_accertamento,
+       sum(ts.movgest_ts_importo) importo_vincolato,
+       detAiniz.movgest_ts_det_importo importo_iniziale, detAAtt.movgest_ts_det_importo importo_attuale,
+       deta.movgest_ts_det_importo importo_utilizzabile
+from siac_r_movgest_ts ts,
+     siac_t_movgest mA,siac_d_movgest_tipo tipoA ,
+     siac_t_movgest_ts tsA,siac_d_movgest_ts_tipo tstipoA,
+     siac_t_movgest_ts_det deta, siac_d_movgest_ts_Det_tipo tipodet,
+     siac_t_movgest_ts_det detAIniz, siac_d_movgest_ts_Det_tipo tipodetIniz,
+     siac_t_movgest_ts_det detAAtt, siac_d_movgest_ts_Det_tipo tipodetAtt
+where ts.ente_proprietario_id=${p_ente}
+and   ts.movgest_ts_a_id=tsA.movgest_ts_id
+and   ts.data_cancellazione is null
+and   ts.validita_fine is null
+and   tsA.movgest_ts_tipo_id=tstipoA.movgest_ts_tipo_id
+and   tstipoA.movgest_ts_tipo_code=&apos;T&apos;
+and   mA.movgest_id=tsa.movgest_id
+and   tipoA.movgest_tipo_id=mA.movgest_tipo_id
+and   tipoA.movgest_tipo_code=&apos;A&apos;
+and   tsA.movgest_ts_tipo_id=tstipoA.movgest_ts_tipo_id
+and   tstipoA.movgest_ts_tipo_code=&apos;T&apos;
+and   deta.movgest_ts_id=tsA.movgest_ts_id
+and   deta.data_cancellazione is null
+and   deta.validita_fine is null
+and   tipodet.movgest_ts_det_tipo_id=deta.movgest_ts_det_tipo_id
+and   tipodet.movgest_ts_det_tipo_code=&apos;U&apos;
+and   detAIniz.movgest_ts_id=tsa.movgest_ts_id
+and   tipodetiniz.movgest_ts_det_tipo_id=detAIniz.movgest_ts_det_tipo_id
+and   tipodetiniz.movgest_ts_det_tipo_code=&apos;I&apos;
+and   detAAtt.movgest_ts_id=tsa.movgest_ts_id
+and   tipodetAtt.movgest_ts_det_tipo_id=detAAtt.movgest_ts_det_tipo_id
+and   tipodetAtt.movgest_ts_det_tipo_code=&apos;A&apos;
+group by mA.movgest_anno, mA.movgest_numero,
+         detAIniz.movgest_ts_det_importo,detAAtt.movgest_ts_det_importo,deta.movgest_ts_det_importo
+order by  mA.movgest_anno, mA.movgest_numero::integer</sql>
+    <limit>0</limit>
+    <lookup>Block this step until write 2  finish</lookup>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>599</xloc>
+      <yloc>362</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Block this step until write 1 finish</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <steps>
+      <step>
+        <name>1 - scrive  foglio Scarti Vincoli Imp. Acc. Postgres</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>334</xloc>
+      <yloc>275</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Block this step until write 2  finish</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <steps>
+      <step>
+        <name>2 - scrive foglio Impegni Vincolati</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>334</xloc>
+      <yloc>362</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get System Info</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>N</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>inizio</name>
+        <type>system date (variable)</type>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>121</xloc>
+      <yloc>266</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Impegni vincolati</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>Siac</connection>
+    <sql>select ?::Date,mI.movgest_anno anno_impegno,
+mI.movgest_numero numero_impegno,
+mA.movgest_anno anno_accertamento,
+mA.movgest_numero numero_accertamento,
+ts.movgest_ts_importo importo_vincolo
+from siac_r_movgest_ts ts,
+siac_t_movgest mA,
+siac_d_movgest_tipo tipoA,
+siac_t_movgest_ts tsA,
+siac_d_movgest_ts_tipo tstipoA,
+siac_t_movgest mI,
+siac_d_movgest_tipo tipoI ,
+siac_t_movgest_ts tsI,
+siac_d_movgest_ts_tipo tstipoI,
+migr_impegno_accertamento migr
+where ts.ente_proprietario_id=${p_ente}
+and   ts.movgest_ts_a_id=tsA.movgest_ts_id
+and   ts.movgest_ts_b_id=tsI.movgest_ts_id
+and   ts.data_cancellazione is null
+and   ts.validita_fine is null
+and   tsA.movgest_ts_tipo_id=tstipoA.movgest_ts_tipo_id
+and   tstipoA.movgest_ts_tipo_code=&apos;T&apos;
+and   mA.movgest_id=tsa.movgest_id
+and   tipoA.movgest_tipo_id=mA.movgest_tipo_id
+and   tipoA.movgest_tipo_code=&apos;A&apos;
+and   tsA.movgest_ts_tipo_id=tstipoA.movgest_ts_tipo_id
+and   tstipoA.movgest_ts_tipo_code=&apos;T&apos;
+and   mI.movgest_id=tsI.movgest_id
+and   tipoI.movgest_tipo_id=mI.movgest_tipo_id
+and   tipoI.movgest_tipo_code=&apos;I&apos;
+and   tsI.movgest_ts_tipo_id=tstipoI.movgest_ts_tipo_id
+and   tstipoI.movgest_ts_tipo_code=&apos;T&apos;
+and   migr.ente_proprietario_id=${p_ente}
+and   migr.anno_accertamento=ma.movgest_anno::varchar
+and   migr.numero_accertamento = ma.movgest_numero::integer
+and   migr.anno_impegno=mI.movgest_anno::varchar
+and   migr.numero_impegno =mI.movgest_numero::integer
+order by  mI.movgest_anno, mI.movgest_numero::integer,
+          mA.movgest_anno, mA.movgest_numero::integer;
+</sql>
+    <limit>0</limit>
+    <lookup>Block this step until write 1 finish</lookup>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>596</xloc>
+      <yloc>275</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Scarti vincoli impegni_accertamenti</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>Siac</connection>
+    <sql>select s.vincolo_impacc_id vincolo_id,
+       s.anno_esercizio anno_esercizio,
+       m.anno_impegno anno_impegno,
+       m.numero_impegno numero_impegno,
+       m.anno_accertamento anno_accertamento,
+       m.numero_accertamento numero_accertamento,
+       s.motivo_scarto motivo_scarto,
+       m.importo importo_scartato
+from migr_impacc_scarto s, migr_impegno_accertamento m
+where s.ente_proprietario_id=${p_ente}
+  and s.ente_proprietario_id=m.ente_proprietario_id
+  and s.vincolo_impacc_id=m.vincolo_impacc_id;
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>597</xloc>
+      <yloc>195</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <logmessage>p_anno_esercizio=${p_anno_esercizio}</logmessage>
+    <fields>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>601</xloc>
+      <yloc>99</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step_error_handling>
+  </step_error_handling>
+   <slave-step-copy-partition-distribution>
+</slave-step-copy-partition-distribution>
+   <slave_transformation>N</slave_transformation>
+</transformation>

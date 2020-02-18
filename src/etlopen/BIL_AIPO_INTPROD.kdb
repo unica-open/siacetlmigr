@@ -1,0 +1,22 @@
+  <connection>
+    <name>BIL_AIPO_INTPROD</name>
+    <server>INTPROD.REGIONE.PIEMONTE.IT</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>INTPRUPA</database>
+    <port>1527</port>
+    <username>bil_aipo</username>
+    <password>Encrypted 2be98afc86aa7f2e4a910a24fdf9bbfd5</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1527</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
